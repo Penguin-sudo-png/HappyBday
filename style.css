@@ -147,9 +147,34 @@ body {
   transform: rotate(-5deg);
 }
 
-.photo-slot-two,
+.photo-slot-one {
+  background-image: url('MenYna.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.photo-slot-two {
+  transform: rotate(5deg);
+  background-image: url('Penguin.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .photo-slot-three {
   transform: rotate(5deg);
+  background-image: url('Yna.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.photo-slot-four {
+  background-image: url('Babyyna.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .envelope-wrap {
