@@ -33,26 +33,7 @@ if (starsContainer && starsContainer.children.length === 0) {
   }
 }
 
-if (bgMusic) {
-  window.addEventListener('load', () => {
-    tryPlayMusic();
-  });
-
-  document.addEventListener('pointerdown', tryPlayMusic, { once: true });
-  document.addEventListener('keydown', tryPlayMusic, { once: true });
-}
-
 if (envelopeWrap && note) {
-  envelopeWrap.addEventListener('click', () => {
-    envelopeWrap.classList.toggle('opened');
-    const isOpen = envelopeWrap.classList.contains('opened');
-    note.textContent = isOpen ? 'click to close' : 'click to open';
-
-    if (bgMusic) {
-      tryPlayMusic();
-    }
-  });
-
   envelopeWrap.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();

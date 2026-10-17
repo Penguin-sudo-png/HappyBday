@@ -29,7 +29,7 @@
       <div class="photo-slot photo-slot-four"></div>
     </div>
 
-    <audio id="bgMusic" preload="auto" autoplay playsinline>
+    <audio id="bgMusic" preload="auto" playsinline>
       <source src="Tenerife Sea - Ed Sheeran (Guitar Fingerstyle Cover).mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
@@ -41,6 +41,7 @@
         aria-label="Open birthday envelope"
         tabindex="0"
         role="button"
+        onclick="toggleEnvelope()"
       >
         <div class="envelope">
           <div class="flap"></div>
@@ -86,5 +87,28 @@ Happy birthday, my love. I love you always. ♡"></textarea>
     </div>
 
     <script src="script.js"></script>
+    <script>
+      function toggleEnvelope() {
+        const envelopeWrap = document.getElementById('envelopeWrap');
+        const note = document.querySelector('.note');
+        const bgMusic = document.getElementById('bgMusic');
+
+        if (!envelopeWrap || !note) return;
+
+        const wasOpen = envelopeWrap.classList.contains('opened');
+        envelopeWrap.classList.toggle('opened');
+        const isOpen = envelopeWrap.classList.contains('opened');
+        note.textContent = isOpen ? 'click to close' : 'click to open';
+
+        if (!bgMusic) return;
+
+        if (isOpen && !wasOpen) {
+          bgMusic.play().catch(() => {});
+        } else if (!isOpen && wasOpen) {
+          bgMusic.pause();
+          bgMusic.currentTime = 0;
+        }
+      }
+    </script>
   </body>
 </html>
