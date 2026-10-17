@@ -41,7 +41,6 @@
         aria-label="Open birthday envelope"
         tabindex="0"
         role="button"
-        onclick="toggleEnvelope()"
       >
         <div class="envelope">
           <div class="flap"></div>
@@ -86,29 +85,85 @@ Happy birthday, my love. I love you always. ♡"></textarea>
       <div class="note">click to open</div>
     </div>
 
+    <div class="memory-stack">
+      <section class="story-card timeline-card">
+        <div class="section-header">
+          <span class="eyebrow">our story</span>
+          <h2>How we grew into us</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item no-media">
+            <div class="timeline-date">March 21, 2026</div>
+            <div class="timeline-content">
+              <h3>Our first hello(cafe, no pictures, just us)</h3>
+              <p>The first conversation that made the day feel lighter and a little more beautiful.</p>
+            </div>
+          </div>
+          <div class="timeline-item has-media">
+            <div class="timeline-date">April 08, 2026</div>
+            <div class="timeline-content">
+              <h3>Family Bonding</h3>
+              <p>First time meeting your family, random messages, and the kind of comfort that started feeling like home.</p>
+            </div>
+            <div class="timeline-media family-meet" aria-label="Family bonding memory photo"></div>
+          </div>
+          <div class="timeline-item has-media">
+            <div class="timeline-date">April 17, 2026</div>
+            <div class="timeline-content">
+              <h3>First real memory(our real first date)</h3>
+              <p>A simple day turned unforgettable because you were there, and that meant everything.</p>
+            </div>
+            <div class="timeline-media first-date" aria-label="First date memory photo"></div>
+          </div>
+          <div class="timeline-item has-media">
+            <div class="timeline-date">May 08, 2026</div>
+            <div class="timeline-content">
+              <h3>When it became clear</h3>
+              <p>What started as a sweet connection turned into something deep, steady, and full of heart.</p>
+            </div>
+            <div class="timeline-media us-photo" aria-label="When it became clear memory photo"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="story-card wishes-card">
+        <div class="section-header center">
+          <span class="eyebrow">a sky full of wishes</span>
+          <h2>For your new year of life</h2>
+        </div>
+
+        <div class="wish-grid" aria-label="Birthday wishes">
+          <button class="wish-star" data-wish="Happiness that follows you everywhere you go." type="button">✦</button>
+          <button class="wish-star" data-wish="Confidence to trust your voice and your magic." type="button">✦</button>
+          <button class="wish-star" data-wish="Peace that settles your heart and quiets your worries." type="button">✦</button>
+          <button class="wish-star" data-wish="Success that grows from your effort and your dream." type="button">✦</button>
+          <button class="wish-star" data-wish="Courage to chase the life you truly want." type="button">✦</button>
+          <button class="wish-star" data-wish="Love that keeps reminding you how deeply you are cherished." type="button">✦</button>
+          <button class="wish-star" data-wish="A year full of beautiful moments and brave steps forward." type="button">✦</button>
+        </div>
+
+        <div class="wish-reveal" id="wishReveal">Tap a star and uncover a wish for your beautiful new chapter.</div>
+      </section>
+
+      <section class="story-card candle-card">
+        <div class="section-header center">
+          <span class="eyebrow">make a wish</span>
+          <h2>Birthday candle</h2>
+        </div>
+
+        <div class="birthday-candle" aria-label="Blow out the birthday candle">
+          <div class="candle-body">
+            <div class="wick"></div>
+            <button class="flame" id="birthdayFlame" type="button" aria-label="Blow out the candle"></button>
+          </div>
+          <div class="candle-stars" aria-hidden="true"></div>
+        </div>
+
+        <p class="candle-message" id="candleMessage">Click the flame and make a wish.</p>
+      </section>
+    </div>
+
     <script src="script.js"></script>
-    <script>
-      function toggleEnvelope() {
-        const envelopeWrap = document.getElementById('envelopeWrap');
-        const note = document.querySelector('.note');
-        const bgMusic = document.getElementById('bgMusic');
-
-        if (!envelopeWrap || !note) return;
-
-        const wasOpen = envelopeWrap.classList.contains('opened');
-        envelopeWrap.classList.toggle('opened');
-        const isOpen = envelopeWrap.classList.contains('opened');
-        note.textContent = isOpen ? 'click to close' : 'click to open';
-
-        if (!bgMusic) return;
-
-        if (isOpen && !wasOpen) {
-          bgMusic.play().catch(() => {});
-        } else if (!isOpen && wasOpen) {
-          bgMusic.pause();
-          bgMusic.currentTime = 0;
-        }
-      }
-    </script>
   </body>
 </html>
